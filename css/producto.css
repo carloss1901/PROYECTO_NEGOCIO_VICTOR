@@ -1,0 +1,275 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 7px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+  }
+  .header-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /*FLECHA*/
+  .arrow-icon {
+    color: #ffffff;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    font-size: 35px;
+  }
+  /*TEXTO HEADER*/
+  .arrow-text {
+    font-weight: bold;
+    font-size: 33px;
+    margin-left: 15px;
+  }
+  /*ANIMACION FLECHA VOVLER*/
+  .back-button {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .back-button:hover {
+    transform: scale(1.1);
+  }
+  /*CUERPO*/
+  .cuerpo {
+    margin-top: 81px;
+  }
+  /*TITULO*/
+  .titulo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  /*TABLA*/
+  #productoContainer {
+    margin: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  } 
+  th{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+  th:last-child, td:last-child {
+    border-right: none; /* Elimina el borde derecho en la última columna */
+  }
+  td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+  td.centrar {
+    text-align: center;
+  }
+  /* Estilos para los encabezados */
+  thead {
+    background-color: #f2f2f2;
+  }
+  thead th {
+    text-align: center;
+    font-size: 17px;
+  }
+  /* Estilos para filas alternas */
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  /* Estilos al pasar el ratón sobre una fila */
+  tbody tr:hover {
+    background-color: #eaeaea;
+  }
+  /*BOTON*/
+  .boton-derecha {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-right: 79px;
+  }
+  /*FORMULARIO EDITAR*/
+  #formularioEditar form {
+    width: 460px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #formularioEditar label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  #formularioEditar input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  #formularioEditar textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  #formularioEditar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  #formularioEditar button:hover {
+    background-color: #45a049;
+  }
+  #formularioEditar.mostrar {
+    display: block;
+    opacity: 1;
+  }
+  /*FORMULARIO REGISTRAR*/
+  #formularioRegistrar form {
+    width: 460px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #formularioRegistrar label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  #formularioRegistrar input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  #formularioRegistrar textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  #formularioRegistrar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  #formularioRegistrar button:hover {
+    background-color: #45a049;
+  }
+  /*ERROR INPUT*/
+  input:invalid {
+    border: 1px solid red;
+  }
+  /*COMBO BOX*/
+  .styled-select {
+    display: inline-block;
+    position: relative;
+    font-family: Arial, sans-serif;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #efeded;
+  }
+ .styled-select select {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+  }
+  .styled-select:after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    pointer-events: none;
+  }
+  /*SWEET ALERT*/
+  .swal-popup {
+    z-index: 9999;
+  }
+  .swal2-confirm.btn-success {
+    background-color: #28a745; /* Cambia el color de fondo al verde deseado */
+    border-color: #28a745; /* Cambia el color del borde al verde deseado */
+  }
+  /*PRODUCTO INACTIVO*/
+  .fila-inactiva {
+    background-color: #ebbebe; /* Cambia el color de fondo según tu preferencia */
+  }
+  
+  
+  

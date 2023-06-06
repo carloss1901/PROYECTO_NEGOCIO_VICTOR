@@ -1,0 +1,183 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 7px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+  }
+  .header-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .login {
+    background-color: #f60;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .login:hover {
+    transform: scale(1.1);
+  }
+  .logo{
+    cursor: pointer;
+  }
+  .header-option {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .header-option:hover {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transform: scale(1.1);
+  }
+  .header-option.active {
+    background-color: #fff;
+    color: #333;
+    font-weight: bold;
+  }
+  /*CUERPO ITEM*/
+  .pedido-item {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin: 40px auto;
+    max-width: 1000px;
+  }
+  .pedido-item h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .productos table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .productos th {
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .productos td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .productos td.centrado {
+    text-align: center;
+  }
+  .productos td.derecha {
+    text-align: right;
+  }
+  .productos td.vacia {
+    font-weight: bold;
+    text-align: right;
+  }
+  .productos td.fila-total {
+    text-align: right;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .productos th {
+    background-color: #333333;
+    color: #fff;
+    font-weight: bold;
+    border-top: 2px solid #ccc;
+  }
+  .productos thead {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  }
+  .productos tbody {
+    background-color: #fff;
+  }  
+  .pedido-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 3px;
+  }
+  /*CONTENEDOR CUERPO*/
+  .cuerpo {
+    margin-top: 81px;
+  }
+  /*TITULO*/
+  .titulo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  /*BOTONES*/
+  .botones-container {
+    position: absolute;
+    top: 0;
+    right: 0; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end;
+    margin-top: 13px;
+    margin-right: 10px;
+  }
+  .botones-container button {
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  .botones-container button:hover {
+    background-color: #45a049;
+  }
+  .botones-container button:last-child {
+    margin-bottom: 0;
+  }
+  /*CONTADOR PEDIDOS RECIBIDOS*/
+  .contador {
+    display: inline-block;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    font-size: 14px;
+  }

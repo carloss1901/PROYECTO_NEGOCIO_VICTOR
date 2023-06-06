@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias</title>
+    <link rel="stylesheet" type="text/css" href="css/categoria.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+      <div class="back-button" onclick="redireccionar()">
+        <i class="fas fa-arrow-left arrow-icon"></i>
+        <span class="arrow-text">Volver</span>
+      </div>
+    </header>
+
+    <div id="formularioEditar" style="display: none;">
+      <form>
+        <h1 style="text-align: center;">Editar Categoría</h1>
+        <br>
+        <label for="idCategoria">ID:</label>
+        <input type="text" id="idCategoria" name="idCategoria" readonly onmousedown="return false;">
+        
+        <label for="nombreCategoria">Nombre:</label>
+        <input type="text" id="nombreCategoria" name="nombreCategoria">
+        
+        <label for="estadoCategoria">Estado:</label>
+        <div class="styled-select">
+          <select id="estadoCategoria" name="estadoCategoria" disabled>
+            <option value="si">Activo</option>
+            <option value="no">No activo</option>
+          </select>
+        </div>
+        
+        <button type="button" id="btnActualizar">Actualizar</button>
+      </form>
+    </div>
+
+    <div id="formularioRegistrar" style="display: none;">
+      <form>
+        <h1 style="text-align: center;">Registrar Categoría</h1>
+        <br>
+        <label for="nombreCategoria">Nombre:</label>
+        <input type="text" id="nombreCategoriaR" name="nombreCategoriaR">
+        
+        <button type="button" id="btnRegistrar">Registrar</button>
+      </form>
+    </div>
+
+    <div class="cuerpo">
+      <h1 class="titulo">Categorías</h1>
+      <div class="boton-derecha">
+        <button class="btn btn-primary" id="btnGuardarCategoria"><strong>Agregar Nueva Categoria</strong></button>
+      </div>
+      <div id="categoriaContainer"></div>
+    </div>
+
+    <script src="js/categoria.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" type="text/css" href="css/producto.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+      <div class="back-button" onclick="redireccionar()">
+        <i class="fas fa-arrow-left arrow-icon"></i>
+        <span class="arrow-text">Volver</span>
+      </div>
+    </header>
+
+    <div id="formularioEditar" style="display: none;">
+      <form>
+        <h1 style="text-align: center;">Editar Producto</h1>
+        <br>
+        <label for="idProducto">ID:</label>
+        <input type="text" id="idProducto" name="idProducto" readonly onmousedown="return false;">
+        
+        <label for="nombreProducto">Nombre:</label>
+        <input type="text" id="nombreProducto" name="nombreProducto">
+        
+        <label for="precioProducto">Precio: S/.</label>
+        <input type="text" id="precioProducto" name="precioProducto" oninput="validarPrecio(this)">
+        
+        <label for="stockProducto">Stock:</label>
+        <input type="text" id="stockProducto" name="stockProducto" oninput="validarStock(this)">
+        
+        <label for="estadoProducto">Estado:</label>
+        <div class="styled-select">
+          <select id="estadoProducto" name="estadoProducto" disabled>
+            <option value="si">Activo</option>
+            <option value="no">No activo</option>
+          </select>
+        </div>
+        
+        <label for="recomendadoProducto">Recomendado:</label>
+        <div class="styled-select">
+          <select id="recomendadoProducto" name="recomendadoProducto">
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        
+        <label for="categoriaProducto">Categoría:</label>
+        <div class="styled-select">
+          <select id="categoriaProducto" name="categoriaProducto"></select>
+        </div>
+        
+        <label for="imagenProducto">Imagen:</label>
+        <textarea id="imagenProducto" name="imagenProducto" rows="4" cols="30"></textarea>
+        
+        <button type="button" id="btnActualizar">Actualizar</button>
+      </form>
+    </div>
+
+    <div id="formularioRegistrar" style="display: none;">
+      <form>
+        <h1 style="text-align: center;">Registrar Producto</h1>
+        <br>
+        <label for="nombreProducto">Nombre:</label>
+        <input type="text" id="nombreProductoR" name="nombreProducto">
+        
+        <label for="precioProducto">Precio: S/.</label>
+        <input type="text" id="precioProductoR" name="precioProducto" oninput="validarPrecio(this)">
+        
+        <label for="stockProducto">Stock:</label>
+        <input type="text" id="stockProductoR" name="stockProducto" oninput="validarStock(this)">
+        
+        <label for="estadoProducto">Estado:</label>
+        <div class="styled-select">
+          <select id="estadoProductoR" name="estadoProducto">
+            <option value="si">Activo</option>
+            <option value="no">No activo</option>
+          </select>
+        </div>
+        
+        <label for="recomendadoProducto">Recomendado:</label>
+        <div class="styled-select">
+          <select id="recomendadoProductoR" name="recomendadoProducto">
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        
+        <label for="categoriaProducto">Categoría:</label>
+        <div class="styled-select">
+          <select id="categoriaProductoR" name="categoriaProducto"></select>
+        </div>
+        
+        <label for="imagenProducto">Imagen:</label>
+        <textarea id="imagenProductoR" name="imagenProducto" rows="4" cols="30"></textarea>
+        
+        <button type="button" id="btnRegistrar">Guardar</button>
+      </form>
+    </div>
+
+    <div class="cuerpo">
+      <h1 class="titulo">Productos</h1>
+      <div class="boton-derecha">
+        <button class="btn btn-primary" id="btnGuardarProducto"><strong>Agregar Nuevo Producto</strong></button>
+      </div>
+      <div id="productoContainer"></div>
+    </div>
+
+    <script src="js/producto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

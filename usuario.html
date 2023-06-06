@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis datos</title>
+    <link rel="stylesheet" type="text/css" href="css/usuario.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="rounded-items top-left">
+        <div class="rounded-item" id="flecha">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <span>Volver</span>
+    </div>
+
+    <div class="wrapper">
+        <h1>Mis Datos</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="usernameInput">Username</label>
+                <input type="text" placeholder="Username" id="usernameInput">
+            </div>
+            <div class="form-group">
+                <label for="passwordInput">Contraseña:</label>
+                <input type="password" placeholder="Contraseña" id="passwordInput">
+                <span id="togglePassword" class="password-toggle"><i class="fas fa-eye"></i></span>
+            </div>
+            <div class="form-group">
+                <label for="nombresInput">Nombres:</label>
+                <input type="text" placeholder="Nombres" id="nombresInput">
+            </div>
+            <div class="form-group">
+                <label for="apellidosInput">Apellidos:</label>
+                <input type="text" placeholder="Apellidos" id="apellidosInput">
+            </div>
+            <div class="form-group">
+                <label for="dniInput">DNI:</label>
+                <input type="text" placeholder="DNI" id="dniInput" oninput="filtrarNumerosDNI(event)" title="Ingrese solo números" required>
+            </div>
+            <div class="form-group">
+                <label for="celularInput">Celular:</label>
+                <input type="text" placeholder="Celular" id="celularInput" oninput="filtrarNumeros(event)" title="Ingrese solo números" required>
+            </div>
+            <div class="form-group">
+                <label for="direccionInput">Dirección:</label>
+                <input type="text" placeholder="Dirección" id="direccionInput" required>
+            </div>
+        </form>
+        <button id="submitForm">Actualizar</button>
+    </div>
+
+    <script src="js/usuario.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

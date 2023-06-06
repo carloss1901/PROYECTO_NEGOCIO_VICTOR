@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    background: #dfe9f5;
+}
+.wrapper {
+    width: 380px;
+    padding: 2rem 1rem;
+    margin: 50px auto;
+    margin-top: 150px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    font-size: 2.5rem;
+    color: #07001f;
+    margin-bottom: 1.2rem;
+}
+form input {
+    width: 92%;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background: #e4e4e4;
+}
+form input:focus {
+    border: 1px solid rgb(192, 192, 192);
+    box-shadow: 0 0 5px #6cdcff;
+}
+button {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    padding: 10px 0;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    width: 90%;
+    color: #fff;
+    cursor: pointer;
+    background: rgb(17, 107, 143);
+}
+button:hover {
+    background: rgba(17, 107, 143, 0.877);
+}
+input:focus {
+    border: 1px solid rgb(192, 192, 192);
+}
+.member {
+    font-size: 0.8rem;
+    margin-top: 1.4rem;
+    color: #636363;
+}
+.member a {
+    color: rgb(17, 107, 143);
+    text-decoration: none;
+}
+.recover {
+    text-align: right;
+    font-size: 0.7rem;
+    margin: 0.3rem 1.4rem 0 0;
+}
+.recover a {
+    text-decoration: none;
+    color: #464647;
+}
+
+
+.rounded-items {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    justify-content: space-between;
+} 
+.rounded-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background-color: #888;
+    transition: transform 0.3s ease-in-out;
+}
+.rounded-item:hover {
+    transform: scale(1.2);
+}
+.rounded-items:hover span {
+    transform: scale(1.2);
+}
+.rounded-item i {
+    font-size: 30px;
+    color: #fff;
+}
+.rounded-items span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px; 
+    color: #888;
+    margin-top: 1px;
+    margin-left: 14px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.password-toggle {
+    position: relative;
+    cursor: pointer;
+}
+.password-toggle i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+  
