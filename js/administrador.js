@@ -9,7 +9,6 @@ const menuIconWrapperA = document.getElementById('menu-icon-wrapper')
 const usuarioOpcionesA = document.getElementById('usuario-opciones')
 const logoutAd = document.getElementById('logout')
 const catalogo = document.getElementById('catalogo')
-a
 
 logoutAd.addEventListener('click', () => {
   localStorage.removeItem('userData')
@@ -43,7 +42,7 @@ buscarUsuario(userDataA)
     const c = desencriptar(ps)
     const headers = new Headers()
     headers.append('Authorization', 'Basic ' + btoa(username + ":" + c))
-    fetch(`https://negocio-victor.rj.r.appspot.com/pedido/listar/noentregados`, {
+    fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/pedido/listar/noentregados`, {
       method: 'GET',
       headers: headers
     })
