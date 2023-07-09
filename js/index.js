@@ -7,6 +7,7 @@ const login = document.getElementById('login')
 
 const userDataString = localStorage.getItem('userData');
 const userName = localStorage.getItem('userName');
+const nm = localStorage.getItem('nm')
 const userMenu = document.getElementById('user-menu')
 const menuIconWrapper = document.getElementById('menu-icon-wrapper')
 const usuarioOpciones = document.getElementById('usuario-opciones')
@@ -26,7 +27,7 @@ var searchForm = document.getElementById('searchForm')
 var searchInput = document.getElementById('searchInput')
 
 let carrito = {}
-let rutaProductosRecomendados = 'https://negocio-victor.rj.r.appspot.com/producto/listar/recomendados';
+let rutaProductosRecomendados = 'http://victor-api.sa-east-1.elasticbeanstalk.com/producto/listar/recomendados';
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchData(rutaProductosRecomendados)
@@ -60,7 +61,7 @@ misDatos.addEventListener('click', () => {
     window.location.href = 'usuario.html'
 })
 
-fetch('https://negocio-victor.rj.r.appspot.com/categoria/listar/activos')
+fetch('http://victor-api.sa-east-1.elasticbeanstalk.com/categoria/listar/activos')
 .then(response => response.json())
 .then(data => {
     const categorias = document.querySelector('#categorias');
@@ -71,7 +72,7 @@ fetch('https://negocio-victor.rj.r.appspot.com/categoria/listar/activos')
         categorias.appendChild(li);
         li.addEventListener('click', () => {
             const idCategoria = li.getAttribute('data-id')
-            fetchData(`http://localhost:8080/producto/listar/categoria/${idCategoria}`)
+            fetchData(`http://victor-api.sa-east-1.elasticbeanstalk.com/producto/listar/categoria/${idCategoria}`)
         })
     });
 })
@@ -225,10 +226,7 @@ if (userDataString) {
     userMenu.style.display = 'block'
   
     const welcomeMessage = userMenu.querySelector('.welcome-message')
-    buscarNombreCliente(userDataString)
-    .then(nombre => {
-        welcomeMessage.textContent = `Bienvenido, ${nombre}`
-    })
+    welcomeMessage.textContent = `Bienvenido, ` + nm
 
     menuIconWrapper.addEventListener('click', () => {
         usuarioOpciones.style.display = 'block'
@@ -244,23 +242,12 @@ if (userDataString) {
     userMenu.style.display = 'none';
   }
 
-function buscarNombreCliente(id) {
-    return fetch(`https://negocio-victor.rj.r.appspot.com/usuario/id/${id}`)
-    .then(response => response.json())
-    .then(data => {
-        return data.nombres
-    })
-    .catch(error => {
-        console.error(error)
-        return ''
-    })
-}
 function mostrarProductosCarrito() {
     const carritoItems = JSON.parse(localStorage.getItem('carrito')) || {};
     const productoIds = Object.keys(carritoItems);
 
     Promise.all(
-        productoIds.map(id => fetch(`https://negocio-victor.rj.r.appspot.com/producto/id/${id}`).then(resp => resp.json()))
+        productoIds.map(id => fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/producto/id/${id}`).then(resp => resp.json()))
     ).then(productos => {
         const productosHTML = productos.map((producto, index) => {
             const carritoItem = carritoItems[productoIds[index]];
@@ -386,7 +373,7 @@ function notificacionEliminacion() {
 function search() {
     var searchTerm = document.querySelector('.search-form input').value.trim()
     if (searchTerm !== '') {
-        var url = 'https://negocio-victor.rj.r.appspot.com/producto/buscar/' + encodeURIComponent(searchTerm);
+        var url = 'http://victor-api.sa-east-1.elasticbeanstalk.com/producto/buscar/' + encodeURIComponent(searchTerm);
     
         fetch(url)
           .then(response => response.json())

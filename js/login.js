@@ -20,7 +20,7 @@ submitButton.addEventListener('click', function(event) {
         password: password
     }
 
-    fetch('https://negocio-victor.rj.r.appspot.com/login', {
+    fetch('http://victor-api.sa-east-1.elasticbeanstalk.com/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -42,6 +42,7 @@ submitButton.addEventListener('click', function(event) {
         const passEncript = encriptar(password)
         localStorage.setItem('userData', data.id_usuario)
         localStorage.setItem('ps', passEncript)
+        localStorage.setItem('nm', data.nombres)
         limpiarCampos()
         notificacionConfirmacion(data.nombres)
         console.log(data.itemsRol[0].id_rol)

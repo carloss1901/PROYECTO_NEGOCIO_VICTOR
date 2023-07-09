@@ -21,6 +21,7 @@ header {
   .logo {
     font-size: 24px;
     font-weight: bold;
+    cursor: pointer;
   }
   .cart {
     position: relative;
@@ -65,9 +66,6 @@ header {
   .icon--cart {
     width: 29px;
     height: 29px;
-  }
-  .logo{
-    cursor: pointer;
   }
   #cards {
     display: none;

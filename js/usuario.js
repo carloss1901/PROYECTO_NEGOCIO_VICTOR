@@ -57,7 +57,7 @@ function actualizarDatos() {
             const c = desencriptar(ps)
             const auth = new Headers()
             auth.append('Authorization','Basic ' + btoa(usuarioName + ":" + c))
-            fetch(`https://negocio-victor.rj.r.appspot.com/usuario/editar/${userData}`, {
+            fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/usuario/editar/${userData}`, {
                 method: 'PUT',
                 body: JSON.stringify(usuarioBody),
                 headers: {
@@ -87,7 +87,7 @@ function actualizarDatos() {
     })
 }
 function datosEditar(userId) {
-    fetch(`https://negocio-victor.rj.r.appspot.com/usuario/id/${userId}`)
+    fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/usuario/id/${userId}`)
         .then(response => response.json())
         .then(usuario => {
             usernameInput.value = usuario.username
@@ -220,7 +220,7 @@ function encriptar(password) {
     return passwordEncript
 }
 function buscarUsuario(userId) {
-    return fetch(`https://negocio-victor.rj.r.appspot.com/usuario/id/${userId}`)
+    return fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/usuario/id/${userId}`)
     .then(response => response.json())
     .then(user => {
       if(user && user.username) {

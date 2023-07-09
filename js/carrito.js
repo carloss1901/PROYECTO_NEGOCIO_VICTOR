@@ -12,6 +12,8 @@ const fragment = document.createDocumentFragment()
 
 const userData = localStorage.getItem('userData')
 const ps = localStorage.getItem('ps')
+const nm = localStorage.getItem('nm')
+
 const userMenu = document.getElementById('user-menu')
 const menuIconWrapper = document.getElementById('menu-icon-wrapper')
 const usuarioOpciones = document.getElementById('usuario-opciones')
@@ -42,6 +44,7 @@ misPedidosC.addEventListener('click', () => {
 logoutC.addEventListener('click', () => {
     localStorage.removeItem('userData')
     localStorage.removeItem('ps')
+    localStorage.removeItem('nm')
     window.location.href = 'index.html'
 })
 misDatosC.addEventListener('click', () => {
@@ -50,7 +53,7 @@ misDatosC.addEventListener('click', () => {
 
 const fetchData = async () => {
     try {
-        const res = await fetch('https://negocio-victor.rj.r.appspot.com/producto/listar/recomendados')
+        const res = await fetch('http://victor-api.sa-east-1.elasticbeanstalk.com/producto/listar/recomendados')
         const data = await res.json()
         pintarCards(data)
     } catch (error) {
@@ -91,7 +94,7 @@ const setCarrito = objeto => {
     pintarCarrito()
 }
 const obtenerRutaImagen = (productoId) => {
-    const url = `https://negocio-victor.rj.r.appspot.com/producto/id/${productoId}`
+    const url = `http://victor-api.sa-east-1.elasticbeanstalk.com/producto/id/${productoId}`
     return fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -205,7 +208,7 @@ const pintarFooter = () => {
                                 },
                                 detalles: detalles
                             }
-                            fetch('https://negocio-victor.rj.r.appspot.com/pedido/registrar', {
+                            fetch('http://victor-api.sa-east-1.elasticbeanstalk.com/pedido/registrar', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -349,17 +352,6 @@ function notificacionDenegacion() {
         }
       });
 }
-function buscarNombreCliente(id) {
-    return fetch(`https://negocio-victor.rj.r.appspot.com/usuario/id/${id}`)
-    .then(response => response.json())
-    .then(data => {
-        return data.nombres
-    })
-    .catch(error => {
-        console.error(error)
-        return ''
-    })
-}
 function desencriptar(password) {
     let passwordDesencript = ""
     for(let i = 0; i < password.length; i++) {
@@ -372,7 +364,7 @@ function desencriptar(password) {
     return passwordDesencript
 }
 function buscarUsuario(userId) {
-    return fetch(`https://negocio-victor.rj.r.appspot.com/usuario/id/${userId}`)
+    return fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/usuario/id/${userId}`)
     .then(response => response.json())
     .then(user => {
       if(user && user.username) {
@@ -396,10 +388,7 @@ if (userData) {
     userMenu.style.display = 'block'
   
     const welcomeMessage = userMenu.querySelector('.welcome-message')
-    buscarNombreCliente(userData)
-    .then(nombre => {
-        welcomeMessage.textContent = `Bienvenido, ${nombre}`
-    })
+    welcomeMessage.textContent = `Bienvenido, ` + nm
 
     menuIconWrapper.addEventListener('click', () => {
         usuarioOpciones.style.display = 'block'
@@ -409,8 +398,7 @@ if (userData) {
         if (!usuarioOpciones.contains(event.target) && !menuIconWrapper.contains(event.target)) {
           usuarioOpciones.style.display = 'none';
         }
-    })
-      
+    })   
   } else {
     loginC.style.display = 'block';
     userMenu.style.display = 'none';

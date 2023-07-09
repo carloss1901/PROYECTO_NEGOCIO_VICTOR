@@ -1,6 +1,7 @@
 const pedidosContainer = document.getElementById('pedidosContainer')
 const userDataP = localStorage.getItem('userData')
 const ps = localStorage.getItem('ps')
+const nm = localStorage.getItem('nm')
 const userMenu = document.getElementById('user-menu')
 const menuIconWrapper = document.getElementById('menu-icon-wrapper')
 const usuarioOpciones = document.getElementById('usuario-opciones')
@@ -19,6 +20,7 @@ catalogo.addEventListener('click', () => {
 logoutP.addEventListener('click', () => {
   localStorage.removeItem('userData')
   localStorage.removeItem('userName')
+  localStorage.removeItem('nm')
   window.location.href = 'index.html'
 })
 misDatosP.addEventListener('click', () => {
@@ -32,7 +34,7 @@ buscarUsuario(userDataP)
       .then(totalPedidos => {
         const headers = new Headers()
         headers.append('Authorization', 'Basic ' + btoa(username + ':' + c))
-        fetch(`https://negocio-victor.rj.r.appspot.com/pedido/listar/usuario/custom/${userDataP}`, {
+        fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/pedido/listar/usuario/custom/${userDataP}`, {
           method: 'GET',
           headers: headers
         })
@@ -171,10 +173,7 @@ buscarUsuario(userDataP)
     userMenu.style.display = 'block'
   
     const welcomeMessage = userMenu.querySelector('.welcome-message')
-    buscarNombreCliente(userDataP)
-    .then(nombre => {
-        welcomeMessage.textContent = `Bienvenido, ${nombre}`
-    })
+    welcomeMessage.textContent = `Bienvenido, ` + nm
 
     menuIconWrapper.addEventListener('click', () => {
         usuarioOpciones.style.display = 'block'
@@ -199,7 +198,7 @@ function contadorPedidos() {
           const c = desencriptar(ps)
           const headers = new Headers()
           headers.append('Authorization', 'Basic ' + btoa(username + ':' + c))
-          fetch(`https://negocio-victor.rj.r.appspot.com/pedido/listar/usuario/custom/${userDataP}`, {
+          fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/pedido/listar/usuario/custom/${userDataP}`, {
             method: 'GET',
             headers: headers
           })
@@ -216,17 +215,6 @@ function contadorPedidos() {
         })
     })
 }
-function buscarNombreCliente(id) {
-  return fetch(`https://negocio-victor.rj.r.appspot.com/usuario/id/${id}`)
-  .then(response => response.json())
-  .then(data => {
-      return data.nombres
-  })
-  .catch(error => {
-      console.error(error)
-      return ''
-  })
-}
 function desencriptar(password) {
   let passwordDesencript = ""
   for(let i = 0; i < password.length; i++) {
@@ -239,7 +227,7 @@ function desencriptar(password) {
   return passwordDesencript
 }
 function buscarUsuario(userId) {
-  return fetch(`https://negocio-victor.rj.r.appspot.com/usuario/id/${userId}`)
+  return fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/usuario/id/${userId}`)
   .then(response => response.json())
   .then(user => {
     if(user && user.username) {

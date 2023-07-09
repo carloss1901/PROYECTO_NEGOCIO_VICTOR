@@ -26,7 +26,7 @@ const btnGuardar = document.getElementById('btnGuardarProducto')
 const userData = localStorage.getItem('userData') 
 const ps = localStorage.getItem('ps')
 
-fetch('https://negocio-victor.rj.r.appspot.com/producto/listar')
+fetch('http://victor-api.sa-east-1.elasticbeanstalk.com/producto/listar')
 .then(response => response.json())
 .then(data => {
   const tablaProductos = document.createElement('table')
@@ -231,7 +231,7 @@ function guardarProducto() {
         const c = desencriptar(ps)
         const auth = new Headers()
         auth.append('Authorization','Basic ' + btoa(username + ":" + c))
-        fetch('https://negocio-victor.rj.r.appspot.com/producto/registrar', {
+        fetch('http://victor-api.sa-east-1.elasticbeanstalk.com/producto/registrar', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -266,7 +266,7 @@ function actualizarDatos() {
       const c = desencriptar(ps)
       const auth = new Headers()
       auth.append('Authorization','Basic ' + btoa(username + ":" + c))
-      fetch(`https://negocio-victor.rj.r.appspot.com/producto/editar/${idProducto.value}`, {
+      fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/producto/editar/${idProducto.value}`, {
         method: 'PUT',
         body: JSON.stringify(producto),
         headers: {
@@ -289,7 +289,7 @@ function eliminarProductoForm(id) {
       const c = desencriptar(ps)
       const auth = new Headers()
       auth.append('Authorization','Basic ' + btoa(username + ":" + c))
-      fetch(`https://negocio-victor.rj.r.appspot.com/producto/eliminar/${id}`, {
+      fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/producto/eliminar/${id}`, {
         method: 'DELETE',
         headers: auth
       })
@@ -308,7 +308,7 @@ function activarProductoForm(id) {
       const c = desencriptar(ps)
       const headers = new Headers()
       headers.append('Authorization','Basic ' + btoa(username + ":" + c))
-      fetch(`https://negocio-victor.rj.r.appspot.com/producto/activar/${id}`, {
+      fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/producto/activar/${id}`, {
         method: 'DELETE',
         headers: headers
       })
@@ -352,7 +352,7 @@ function redireccionar() {
 }
 function comboboxCategoria() {
   return new Promise((resolve, reject) => {
-    fetch('https://negocio-victor.rj.r.appspot.com/categoria/listar')
+    fetch('http://victor-api.sa-east-1.elasticbeanstalk.com/categoria/listar')
       .then(response => response.json())
       .then(data => {
         comboCategoria.innerHTML = ''
@@ -374,7 +374,7 @@ function comboboxCategoria() {
 }
 function comboboxCategoriaR() {
   return new Promise((resolve, reject) => {
-    fetch('https://negocio-victor.rj.r.appspot.com/categoria/listar')
+    fetch('http://victor-api.sa-east-1.elasticbeanstalk.com/categoria/listar')
       .then(response => response.json())
       .then(data => {
         comboCategoriaR.innerHTML = ''
@@ -455,7 +455,7 @@ function desencriptar(password) {
   return passwordDesencript
 }
 function buscarUsuario(userId) {
-  return fetch(`https://negocio-victor.rj.r.appspot.com/usuario/id/${userId}`)
+  return fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/usuario/id/${userId}`)
   .then(response => response.json())
   .then(user => {
     if(user && user.username) {

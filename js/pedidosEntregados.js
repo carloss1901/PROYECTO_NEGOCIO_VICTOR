@@ -26,7 +26,7 @@ buscarUsuario(userData)
     const c = desencriptar(ps)
     const headers = new Headers()
     headers.append('Authorization','Basic ' + btoa(username + ":" + c))
-    fetch('https://negocio-victor.rj.r.appspot.com/pedido/listar/entregados', {
+    fetch('http://victor-api.sa-east-1.elasticbeanstalk.com/pedido/listar/entregados', {
       method: 'GET',
       headers: headers
     })
@@ -140,7 +140,7 @@ function contadorPedidosRecibidos() {
         const c = desencriptar(ps)
         const headers = new Headers()
         headers.append('Authorization','Basic ' + btoa(username + ":" + c))
-        fetch("https://negocio-victor.rj.r.appspot.com/pedido/listar/recibidos", {
+        fetch("http://victor-api.sa-east-1.elasticbeanstalk.com/pedido/listar/recibidos", {
           method: 'GET',
           headers: headers
         })
@@ -166,7 +166,7 @@ function contadorPedidosRealizados() {
         const c = desencriptar(ps)
         const headers = new Headers()
         headers.append('Authorization','Basic ' + btoa(username + ":" + c))
-        fetch("https://negocio-victor.rj.r.appspot.com/pedido/listar/noentregados", {
+        fetch("http://victor-api.sa-east-1.elasticbeanstalk.com/pedido/listar/noentregados", {
           method: 'GET',
           headers: headers
         })
@@ -197,7 +197,7 @@ function desencriptar(password) {
   return passwordDesencript
 }
 function buscarUsuario(userId) {
-  return fetch(`https://negocio-victor.rj.r.appspot.com/usuario/id/${userId}`)
+  return fetch(`http://victor-api.sa-east-1.elasticbeanstalk.com/usuario/id/${userId}`)
   .then(response => response.json())
   .then(user => {
     if(user && user.username) {

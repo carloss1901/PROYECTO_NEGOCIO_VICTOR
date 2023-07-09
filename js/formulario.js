@@ -55,7 +55,7 @@ submitForm.addEventListener('click', function(event) {
             }]
         }
 
-        fetch('https://negocio-victor.rj.r.appspot.com/usuario/registrar', {
+        fetch('http://victor-api.sa-east-1.elasticbeanstalk.com/usuario/registrar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
