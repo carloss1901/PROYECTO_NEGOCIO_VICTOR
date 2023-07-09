@@ -9,6 +9,7 @@ const menuIconWrapperA = document.getElementById('menu-icon-wrapper')
 const usuarioOpcionesA = document.getElementById('usuario-opciones')
 const logoutAd = document.getElementById('logout')
 const catalogo = document.getElementById('catalogo')
+a
 
 logoutAd.addEventListener('click', () => {
   localStorage.removeItem('userData')
